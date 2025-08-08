@@ -14,7 +14,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-[70vh] w-full flex items-center justify-center">
         <Image
-          src="/hero.jpg"
+          src="/hero.svg"
           alt="Corporate offsite in mountains"
           fill
           className="object-cover"
@@ -39,38 +39,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Search Bar Section */}
-      <section className="max-w-7xl mx-auto px-4">
-        <div className="bg-white shadow-lg rounded-lg p-6 -mt-20 relative z-20">
-          <form className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <input
-              type="text"
-              placeholder="Destination / Region"
-              className="input"
-            />
-            <input type="date" placeholder="Dates" className="input" />
-            <input
-              type="number"
-              placeholder="Group Size"
-              className="input"
-              min={1}
-            />
-            <select className="input">
-              <option>Budget</option>
-              <option value="10000">Under ₹10k</option>
-              <option value="20000">₹10k–₹20k</option>
-              <option value="30000">₹20k–₹30k</option>
-              <option value="30001">Above ₹30k</option>
-            </select>
-            <button
-              type="submit"
-              className="md:col-span-4 btn-primary w-full md:w-auto"
-            >
-              Search
-            </button>
-          </form>
-        </div>
-      </section>
+
 
       {/* Featured Destinations Section */}
       <section className="max-w-7xl mx-auto px-4">
@@ -94,7 +63,7 @@ export default function Home() {
               className="bg-white shadow rounded-lg overflow-hidden"
             >
               <Image
-                src={`/destinations/${city.toLowerCase()}.jpg`}
+                src={`/destinations/${city.toLowerCase()}.svg`}
                 alt={city}
                 width={400}
                 height={250}

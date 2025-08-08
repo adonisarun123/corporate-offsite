@@ -26,7 +26,7 @@ export default function Destinations() {
             className="block bg-white shadow rounded overflow-hidden hover:shadow-lg transition"
           >
             <Image
-              src={`/destinations/${d.slug}.jpg`}
+              src={`/destinations/${d.slug}.svg`}
               width={400}
               height={300}
               alt={d.name}
