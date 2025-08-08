@@ -58,9 +58,10 @@ export default function Home() {
             "Manali",
             "Udaipur",
           ].map((city) => (
-            <div
+            <Link
               key={city}
-              className="bg-white shadow rounded-lg overflow-hidden"
+              href={`/destinations/${city.toLowerCase()}`}
+              className="block bg-white shadow rounded-lg overflow-hidden hover:shadow-lg transition-shadow cursor-pointer"
             >
               <Image
                 src={`/destinations/${city.toLowerCase()}.svg`}
@@ -72,16 +73,13 @@ export default function Home() {
               <div className="p-4">
                 <h3 className="font-semibold mb-1">{city}</h3>
                 <p className="text-sm text-gray-600">
-                  Starting at ₹9,999 per person
+                  Premium corporate offsite destination
                 </p>
-                <Link
-                  href={`/destinations/${city.toLowerCase()}`}
-                  className="text-primary text-sm mt-2 inline-block"
-                >
-                  View Details
-                </Link>
+                <span className="text-primary text-sm mt-2 inline-block">
+                  View Details →
+                </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
@@ -92,19 +90,20 @@ export default function Home() {
           <h2 className="text-2xl font-bold mb-8">Types of Offsites</h2>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
             {[
-              { name: "Adventure", icon: "🏕️" },
-              { name: "Wellness", icon: "🧘" },
-              { name: "Leadership", icon: "🎯" },
-              { name: "Beach", icon: "🏖️" },
-              { name: "Eco-Friendly", icon: "🌿" },
+              { name: "Adventure", icon: "🏕️", slug: "adventure-offsites" },
+              { name: "Wellness", icon: "🧘", slug: "wellness-retreats" },
+              { name: "Leadership", icon: "🎯", slug: "leadership-retreats" },
+              { name: "Beach", icon: "🏖️", slug: "beach-getaways" },
+              { name: "Cultural", icon: "🎭", slug: "cultural-offsites" },
             ].map((t) => (
               <Link
                 key={t.name}
-                href={`/corporate-offsite/${t.name.toLowerCase()}-retreats`}
-                className="flex flex-col items-center bg-white shadow rounded-lg p-6 hover:shadow-lg transition"
+                href={`/experiences/${t.slug}`}
+                className="flex flex-col items-center bg-white shadow rounded-lg p-6 hover:shadow-lg transition cursor-pointer"
               >
                 <span className="text-3xl mb-2">{t.icon}</span>
                 <span className="font-medium">{t.name}</span>
+                <span className="text-xs text-gray-500 mt-1">Learn More</span>
               </Link>
             ))}
           </div>

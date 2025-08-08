@@ -53,13 +53,14 @@ export default function ExperienceDetail({ params }: any) {
       "@type": "Audience",
       "audienceType": experience.targetAudience.join(", ")
     },
-    "offers": experience.packages.map(pkg => ({
-      "@type": "Offer",
-      "name": pkg.name,
-      "description": pkg.duration,
-      "price": pkg.price,
-      "priceCurrency": "INR"
-    }))
+    "areaServed": {
+      "@type": "Country",
+      "name": "India"
+    },
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "availableLanguage": ["English", "Hindi"]
+    }
   };
 
   return (
@@ -148,26 +149,22 @@ export default function ExperienceDetail({ params }: any) {
           </div>
         </section>
 
-        {/* Packages */}
-        <section>
-          <h2 className="text-3xl font-bold mb-6">Program Packages</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {experience.packages.map((pkg, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md border">
-                <h3 className="text-xl font-semibold mb-2">{pkg.name}</h3>
-                <p className="text-gray-600 mb-2">{pkg.duration}</p>
-                <p className="text-2xl font-bold text-secondary mb-4">{pkg.price}</p>
-                <h4 className="font-semibold mb-2">Includes:</h4>
-                <ul className="space-y-1">
-                  {pkg.includes.map((item, idx) => (
-                    <li key={idx} className="text-sm text-gray-600 flex items-center">
-                      <span className="text-accent mr-2">✓</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+        {/* Implementation Approach */}
+        <section className="bg-gradient-to-r from-purple-50 to-blue-50 p-8 rounded-lg">
+          <h2 className="text-3xl font-bold mb-6">Our Implementation Approach</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="text-xl font-semibold mb-3 text-purple-600">Pre-Program Assessment</h3>
+              <p className="text-gray-700">We conduct thorough organizational analysis and participant assessment to customize the program according to your team&apos;s specific needs, challenges, and objectives.</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="text-xl font-semibold mb-3 text-blue-600">Facilitated Experience</h3>
+              <p className="text-gray-700">Expert facilitators guide participants through carefully designed activities and reflections, ensuring maximum learning and practical application of concepts.</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="text-xl font-semibold mb-3 text-green-600">Follow-up Support</h3>
+              <p className="text-gray-700">Post-program coaching sessions and implementation support help ensure that insights gained during the experience translate into lasting behavioral changes and improved performance.</p>
+            </div>
           </div>
         </section>
 

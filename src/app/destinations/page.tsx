@@ -12,6 +12,12 @@ const destinations = [
   { slug: "coorg", name: "Coorg" },
   { slug: "rishikesh", name: "Rishikesh" },
   { slug: "jaipur", name: "Jaipur" },
+  { slug: "manali", name: "Manali" },
+  { slug: "udaipur", name: "Udaipur" },
+  { slug: "wayanad", name: "Wayanad" },
+  { slug: "ooty", name: "Ooty" },
+  { slug: "lonavala", name: "Lonavala" },
+  { slug: "shillong", name: "Shillong" },
 ];
 
 export default function Destinations() {

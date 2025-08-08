@@ -56,12 +56,9 @@ export default function DestinationDetail({ params }: any) {
     },
     "touristType": "Corporate Groups",
     "availableLanguage": ["English", "Hindi"],
-    "offers": destination.packages.map(pkg => ({
-      "@type": "Offer",
-      "name": pkg.name,
-      "description": pkg.duration,
-      "price": pkg.price,
-      "priceCurrency": "INR"
+    "amenityFeature": destination.highlights.map(highlight => ({
+      "@type": "LocationFeatureSpecification",
+      "name": highlight
     }))
   };
 
@@ -144,26 +141,22 @@ export default function DestinationDetail({ params }: any) {
           </div>
         </section>
 
-        {/* Packages */}
-        <section>
-          <h2 className="text-3xl font-bold mb-6">Sample Packages</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {destination.packages.map((pkg, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md border">
-                <h3 className="text-xl font-semibold mb-2">{pkg.name}</h3>
-                <p className="text-gray-600 mb-2">{pkg.duration}</p>
-                <p className="text-2xl font-bold text-secondary mb-4">{pkg.price}</p>
-                <h4 className="font-semibold mb-2">Includes:</h4>
-                <ul className="space-y-1">
-                  {pkg.includes.map((item, idx) => (
-                    <li key={idx} className="text-sm text-gray-600 flex items-center">
-                      <span className="text-accent mr-2">✓</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+        {/* Corporate Benefits */}
+        <section className="bg-gradient-to-r from-blue-50 to-green-50 p-8 rounded-lg">
+          <h2 className="text-3xl font-bold mb-6">Why {destination.name} for Corporate Offsites?</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="text-xl font-semibold mb-2 text-blue-600">Strategic Environment</h3>
+              <p className="text-gray-700">The inspiring natural beauty and peaceful atmosphere of {destination.name} creates the perfect environment for strategic thinking, planning sessions, and innovative problem-solving away from daily distractions.</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="text-xl font-semibold mb-2 text-green-600">Team Bonding</h3>
+              <p className="text-gray-700">Shared experiences in {destination.name}&apos;s unique setting foster stronger relationships, improve communication, and build trust among team members through both structured activities and informal interactions.</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="text-xl font-semibold mb-2 text-purple-600">Enhanced Productivity</h3>
+              <p className="text-gray-700">The change of environment and reduced stress levels lead to increased creativity, better decision-making, and more productive discussions that drive business outcomes and innovation.</p>
+            </div>
           </div>
         </section>
 
@@ -183,7 +176,7 @@ export default function DestinationDetail({ params }: any) {
   );
 }
 
-// Enable SSG for a seed set of destinations
+// Enable SSG for all destinations
 export function generateStaticParams() {
   return [
     { slug: "goa" },
@@ -192,6 +185,10 @@ export function generateStaticParams() {
     { slug: "jaipur" },
     { slug: "manali" },
     { slug: "udaipur" },
+    { slug: "wayanad" },
+    { slug: "ooty" },
+    { slug: "lonavala" },
+    { slug: "shillong" }
   ];
 }
 

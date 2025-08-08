@@ -14,12 +14,7 @@ export interface Experience {
   }[];
   benefits: string[];
   destinations: string[];
-  packages: {
-    name: string;
-    duration: string;
-    price: string;
-    includes: string[];
-  }[];
+
   faqs: {
     question: string;
     answer: string;
@@ -81,20 +76,7 @@ export const experiences: Experience[] = [
       "Higher employee engagement and retention"
     ],
     destinations: ["Udaipur", "Rishikesh", "Coorg", "Jaipur"],
-    packages: [
-      {
-        name: "Executive Leadership Intensive",
-        duration: "3D/2N",
-        price: "₹45,000 per person",
-        includes: ["Luxury accommodation", "Expert facilitators", "All materials", "Meals", "Assessment tools"]
-      },
-      {
-        name: "Strategic Leadership Retreat",
-        duration: "5D/4N",
-        price: "₹75,000 per person",
-        includes: ["Premium venues", "Executive coaching", "Strategic planning tools", "All inclusive", "Follow-up sessions"]
-      }
-    ],
+
     faqs: [
       {
         question: "Who should attend leadership retreats?",
@@ -168,20 +150,7 @@ export const experiences: Experience[] = [
       "Stronger workplace relationships"
     ],
     destinations: ["Rishikesh", "Goa", "Manali", "Coorg"],
-    packages: [
-      {
-        name: "Adrenaline Team Challenge",
-        duration: "2D/1N",
-        price: "₹18,000 per person",
-        includes: ["Adventure activities", "Safety equipment", "Certified instructors", "Accommodation", "Meals"]
-      },
-      {
-        name: "Ultimate Adventure Expedition",
-        duration: "4D/3N",
-        price: "₹32,000 per person",
-        includes: ["Multiple adventure activities", "Team challenges", "Leadership exercises", "Premium stay", "All inclusive"]
-      }
-    ],
+
     faqs: [
       {
         question: "What safety measures are in place for adventure activities?",
@@ -255,20 +224,7 @@ export const experiences: Experience[] = [
       "Stronger team relationships through shared wellness journey"
     ],
     destinations: ["Rishikesh", "Coorg", "Wayanad", "Ooty"],
-    packages: [
-      {
-        name: "Mindfulness & Wellness Retreat",
-        duration: "3D/2N",
-        price: "₹25,000 per person",
-        includes: ["Wellness accommodation", "Yoga sessions", "Spa treatments", "Healthy meals", "Meditation workshops"]
-      },
-      {
-        name: "Complete Wellness Transformation",
-        duration: "7D/6N",
-        price: "₹55,000 per person",
-        includes: ["Luxury wellness resort", "Comprehensive wellness program", "Personal wellness consultations", "All treatments", "Wellness toolkit"]
-      }
-    ],
+
     faqs: [
       {
         question: "Do participants need prior yoga or meditation experience?",
