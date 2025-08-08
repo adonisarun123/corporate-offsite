@@ -31,11 +31,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${montserrat.variable} ${openSans.variable} antialiased`}
+        className={`${montserrat.variable} ${openSans.variable} antialiased 
+                   bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 
+                   min-h-screen text-white`}
       >
-        <Header />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
+        {/* Background Pattern */}
+        <div className="fixed inset-0 bg-[url('/patterns/noise.png')] opacity-5 pointer-events-none" />
+        <div className="fixed inset-0 bg-gradient-to-br from-transparent via-blue-500/5 to-purple-500/10 pointer-events-none" />
+        
+        <div className="relative z-10">
+          <Header />
+          <main className="min-h-screen">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

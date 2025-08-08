@@ -65,46 +65,60 @@ export default function DestinationDetail({ params }: any) {
   return (
     <>
       <JsonLdSchema schema={destinationSchema} />
-      <div className="max-w-7xl mx-auto px-4 py-16 space-y-16">
-        {/* Hero Section */}
-        <section className="relative w-full h-80 rounded-lg overflow-hidden">
-          <Image
-            src={`/destinations/${destination.slug}.svg`}
-            alt={destination.name}
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-black/40 flex items-end">
-            <div className="p-8 text-white">
-              <h1 className="text-4xl md:text-5xl font-bold mb-2">{destination.name}</h1>
-              <p className="text-xl">{destination.state} • {destination.region}</p>
+      
+      {/* Hero Section */}
+      <section className="relative h-[80vh] w-full overflow-hidden">
+        <Image
+          src={`/destinations/${destination.slug}.svg`}
+          alt={`Corporate offsite in ${destination.name}`}
+          fill
+          className="object-cover opacity-40"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center px-4 max-w-4xl mx-auto">
+            <h1 className="heading-1 mb-6">
+              Corporate Offsite in 
+              <span className="block text-sky-400">{destination.name}</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-white/90 mb-8 font-light">
+              {destination.state} • {destination.region}
+            </p>
+            <div className="glass-panel p-6 md:p-8 max-w-2xl mx-auto">
+              <p className="body-text leading-relaxed">
+                {destination.description.slice(0, 200)}...
+              </p>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
+
+      <div className="max-w-7xl mx-auto px-4 lg:px-8 py-16 space-y-16">
 
         {/* Overview */}
-        <section>
-          <h2 className="text-3xl font-bold mb-6">Overview</h2>
-          <p className="text-lg text-gray-700 leading-relaxed">{destination.description}</p>
+        <section className="glass-card p-8 lg:p-12">
+          <h2 className="heading-2 mb-6">Overview</h2>
+          <p className="body-text leading-relaxed">{destination.description}</p>
         </section>
 
         {/* Highlights */}
         <section>
-          <h2 className="text-3xl font-bold mb-6">Why Choose {destination.name}?</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <h2 className="heading-2 mb-8 text-center">Why Choose {destination.name}?</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {destination.highlights.map((highlight, index) => (
-              <div key={index} className="flex items-start space-x-3 p-4 bg-gray-50 rounded-lg">
-                <span className="text-accent text-xl">✓</span>
-                <span className="text-gray-700">{highlight}</span>
+              <div key={index} className="glass-card p-6 flex items-start space-x-4 hover:-translate-y-1 transition-all duration-300">
+                <span className="text-sky-400 text-2xl flex-shrink-0">✓</span>
+                <span className="body-text">{highlight}</span>
               </div>
             ))}
           </div>
         </section>
 
         {/* Best Time to Visit */}
-        <section className="bg-blue-50 p-8 rounded-lg">
-          <h3 className="text-2xl font-bold mb-4">Best Time to Visit</h3>
-          <p className="text-lg text-gray-700">{destination.bestTimeToVisit}</p>
+        <section className="glass-panel p-8 lg:p-12 text-center">
+          <h3 className="heading-3 mb-6">Best Time to Visit</h3>
+          <p className="body-text max-w-3xl mx-auto">{destination.bestTimeToVisit}</p>
         </section>
 
         {/* Activities */}

@@ -37,37 +37,52 @@ export default function LeadForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="grid gap-4 max-w-xl mx-auto text-black"
+      className="grid gap-4 max-w-2xl mx-auto"
     >
-      <input
-        {...register("name", { required: true })}
-        placeholder="Name"
-        className="input"
-      />
-      <input
-        type="email"
-        {...register("email", { required: true })}
-        placeholder="Email"
-        className="input"
-      />
-      <input
-        {...register("company")}
-        placeholder="Company"
-        className="input"
-      />
-      <input
-        {...register("phone")}
-        placeholder="Phone"
-        className="input"
-      />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input
+          {...register("name", { required: true })}
+          placeholder="Full Name *"
+          className="input-glass"
+          required
+        />
+        <input
+          type="email"
+          {...register("email", { required: true })}
+          placeholder="Work Email *"
+          className="input-glass"
+          required
+        />
+      </div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input
+          {...register("company")}
+          placeholder="Company Name"
+          className="input-glass"
+        />
+        <input
+          {...register("phone")}
+          placeholder="Phone Number"
+          className="input-glass"
+          type="tel"
+        />
+      </div>
+      
       <textarea
         {...register("message")}
-        placeholder="Tell us about your offsite"
-        className="input h-32"
+        placeholder="Tell us about your offsite requirements..."
+        className="input-glass h-32 resize-none"
+        rows={4}
       />
-      <button type="submit" className="btn-secondary">
-        Submit
+      
+      <button type="submit" className="btn-primary w-full md:w-auto mx-auto">
+        Get Custom Proposal
       </button>
+      
+      <p className="text-xs text-white/50 text-center">
+        We&apos;ll respond within 24 hours with a tailored proposal
+      </p>
     </form>
   );
 }
