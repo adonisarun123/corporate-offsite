@@ -6,30 +6,26 @@ function capitalize(word: string) {
   return word.charAt(0).toUpperCase() + word.slice(1);
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata> {
+// Loosen param typing to align with Next.js generated types in .next/types
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function generateMetadata({ params }: any): Promise<Metadata> {
+  const slug = params?.slug as string;
   return {
-    title: `Corporate Offsite in ${capitalize(params.slug)} | Corporate Offsite`,
+    title: `Corporate Offsite in ${capitalize(slug)} | Corporate Offsite`,
     description: `Plan your corporate offsite in ${capitalize(
-      params.slug
+      slug
     )}. Venues, activities, itineraries & more.`,
   };
 }
 
-export default function DestinationDetail({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  const name = capitalize(params.slug);
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default function DestinationDetail({ params }: any) {
+  const name = capitalize(params?.slug as string);
   return (
     <div className="max-w-7xl mx-auto px-4 py-16 space-y-12">
       <section className="relative w-full h-64 rounded-lg overflow-hidden">
         <Image
-          src={`/destinations/${params.slug}.jpg`}
+          src={`/destinations/${params?.slug}.jpg`}
           alt={name}
           fill
           className="object-cover"
@@ -45,5 +41,17 @@ export default function DestinationDetail({
       <LeadForm />
     </div>
   );
+}
+
+// Enable SSG for a seed set of destinations
+export function generateStaticParams() {
+  return [
+    { slug: "goa" },
+    { slug: "coorg" },
+    { slug: "rishikesh" },
+    { slug: "jaipur" },
+    { slug: "manali" },
+    { slug: "udaipur" },
+  ];
 }
 

@@ -10,8 +10,10 @@ const types = {
   "beach-getaways": "Beach Getaways",
 } as const;
 
-export function generateMetadata({ params }: { params: { type: string } }): Metadata {
-  const label = types[params.type];
+// Loosen param typing to align with Next.js generated types in .next/types
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function generateMetadata({ params }: any): Metadata {
+  const label = types[params?.type as keyof typeof types];
   if (!label) return {} as Metadata;
   return {
     title: `${label} | Corporate Offsite`,
@@ -19,8 +21,9 @@ export function generateMetadata({ params }: { params: { type: string } }): Meta
   };
 }
 
-export default function OffsiteTypePage({ params }: { params: { type: string } }) {
-  const label = types[params.type];
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default function OffsiteTypePage({ params }: any) {
+  const label = types[params?.type as keyof typeof types];
   if (!label) return notFound();
 
   return (
@@ -58,5 +61,10 @@ export default function OffsiteTypePage({ params }: { params: { type: string } }
       <LeadForm />
     </div>
   );
+}
+
+// Enable SSG for known types and improve build stability
+export function generateStaticParams() {
+  return Object.keys(types).map((type) => ({ type }));
 }
 
