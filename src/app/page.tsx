@@ -1,103 +1,175 @@
 import Image from "next/image";
+import Link from "next/link";
+import LeadForm from "@/components/LeadForm";
+
+export const metadata = {
+  title: "Corporate Offsite Planner | Plan Team Retreats in India",
+  description:
+    "Explore destinations, packages, and experiences for your next corporate offsite. Get a free offsite plan within 24 hours.",
+};
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+    <div className="space-y-24">
+      {/* Hero Section */}
+      <section className="relative h-[70vh] w-full flex items-center justify-center">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
+          src="/hero.jpg"
+          alt="Corporate offsite in mountains"
+          fill
+          className="object-cover"
           priority
         />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative z-10 text-center text-white px-4">
+          <h1 className="text-3xl md:text-5xl font-bold mb-4">
+            Plan the Perfect Corporate Offsite Anywhere in India
+          </h1>
+          <p className="mb-6 max-w-2xl mx-auto">
+            Destinations, Activities, and Packages — All in One Place.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/corporate-offsite" className="btn-primary">
+              Plan My Offsite
+            </Link>
+            <Link href="/destinations" className="btn-secondary">
+              Explore Destinations
+            </Link>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Search Bar Section */}
+      <section className="max-w-7xl mx-auto px-4">
+        <div className="bg-white shadow-lg rounded-lg p-6 -mt-20 relative z-20">
+          <form className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <input
+              type="text"
+              placeholder="Destination / Region"
+              className="input"
+            />
+            <input type="date" placeholder="Dates" className="input" />
+            <input
+              type="number"
+              placeholder="Group Size"
+              className="input"
+              min={1}
+            />
+            <select className="input">
+              <option>Budget</option>
+              <option value="10000">Under ₹10k</option>
+              <option value="20000">₹10k–₹20k</option>
+              <option value="30000">₹20k–₹30k</option>
+              <option value="30001">Above ₹30k</option>
+            </select>
+            <button
+              type="submit"
+              className="md:col-span-4 btn-primary w-full md:w-auto"
+            >
+              Search
+            </button>
+          </form>
+        </div>
+      </section>
+
+      {/* Featured Destinations Section */}
+      <section className="max-w-7xl mx-auto px-4">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-2xl font-bold">Featured Destinations</h2>
+          <Link href="/destinations" className="text-secondary">
+            View More →
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            "Goa",
+            "Coorg",
+            "Rishikesh",
+            "Jaipur",
+            "Manali",
+            "Udaipur",
+          ].map((city) => (
+            <div
+              key={city}
+              className="bg-white shadow rounded-lg overflow-hidden"
+            >
+              <Image
+                src={`/destinations/${city.toLowerCase()}.jpg`}
+                alt={city}
+                width={400}
+                height={250}
+                className="object-cover w-full h-48"
+              />
+              <div className="p-4">
+                <h3 className="font-semibold mb-1">{city}</h3>
+                <p className="text-sm text-gray-600">
+                  Starting at ₹9,999 per person
+                </p>
+                <Link
+                  href={`/destinations/${city.toLowerCase()}`}
+                  className="text-primary text-sm mt-2 inline-block"
+                >
+                  View Details
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Types of Offsites */}
+      <section className="bg-neutral-100 py-16">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-2xl font-bold mb-8">Types of Offsites</h2>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+            {[
+              { name: "Adventure", icon: "🏕️" },
+              { name: "Wellness", icon: "🧘" },
+              { name: "Leadership", icon: "🎯" },
+              { name: "Beach", icon: "🏖️" },
+              { name: "Eco-Friendly", icon: "🌿" },
+            ].map((t) => (
+              <Link
+                key={t.name}
+                href={`/corporate-offsite/${t.name.toLowerCase()}-retreats`}
+                className="flex flex-col items-center bg-white shadow rounded-lg p-6 hover:shadow-lg transition"
+              >
+                <span className="text-3xl mb-2">{t.icon}</span>
+                <span className="font-medium">{t.name}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials placeholder */}
+      <section className="max-w-7xl mx-auto px-4">
+        <h2 className="text-2xl font-bold mb-8">What Our Clients Say</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {[1, 2, 3].map((i) => (
+            <div
+              key={i}
+              className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition"
+            >
+              <p className="italic">
+                “Great experience, seamless planning, and unforgettable
+                memories!”
+              </p>
+              <p className="mt-4 font-medium">— Happy Client {i}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Lead Capture CTA */}
+      <section className="bg-primary text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 text-center space-y-8">
+          <h2 className="text-3xl font-bold">
+            Get a Free Offsite Plan in 24 Hours
+          </h2>
+          <LeadForm />
+        </div>
+      </section>
     </div>
   );
 }
